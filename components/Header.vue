@@ -1,5 +1,8 @@
 <template>
   <header>
+    <h1>{{ $t('home.title') }}</h1>
+    <language-groups></language-groups>
+    <hr />
     <nav class="nav mx-4 my-2">
       <div>Hello</div>
       <div :style="{ margin: 'auto' }"></div>
@@ -18,7 +21,10 @@
 </template>
 
 <script>
+import LanguageGroups from '@/components/LanguageGroups'
+
 export default {
+  components: { LanguageGroups },
   props: ['items']
 }
 </script>

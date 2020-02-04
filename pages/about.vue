@@ -1,3 +1,4 @@
-<template>
-  <h1>About</h1>
-</template>
+<script>
+import About from '~/pages/_lang/about'
+export default About
+</script>
