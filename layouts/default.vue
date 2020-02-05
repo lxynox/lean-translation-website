@@ -16,7 +16,7 @@ export default {
     siteFooter: Footer
   },
   data() {
-    return { items: ['logo', 'about', 'contact'] }
+    return { items: ['home', 'about', 'contact'] }
   }
 }
 </script>

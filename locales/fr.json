@@ -1,14 +1,14 @@
 {
   "links": {
-    "home": "主页",
-    "about": "关于",
-    "contact": "联系"
+    "home": "page d'accueil",
+    "about": "sur",
+    "contact": "contact"
   },
   "home": {
-    "title": "欢迎"
+    "title": "Bienvenue"
   },
   "about": {
-    "title": "About title",
+    "title": "About",
     "introduction": "This page is made to give you more informations."
   }
 }

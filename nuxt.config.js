@@ -27,7 +27,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/i18n.js'],
+  plugins: [],
   /*
    ** Nuxt.js dev-modules
    */
@@ -37,7 +37,8 @@ export default {
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    ['~/modules/i18n.js', { defaultLocale: 'zh' }]
   ],
   /*
    ** Nuxt.js modules
@@ -53,7 +54,7 @@ export default {
     extend(config, ctx) {}
   },
   generate: {
-    routes: ['/', '/about', '/en', '/en/about']
+    // routes: ['/', '/about', '/en', '/en/about']
   },
   router: {
     middleware: 'i18n'
