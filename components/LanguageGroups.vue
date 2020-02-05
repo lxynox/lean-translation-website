@@ -9,7 +9,7 @@
           locale === $i18n.fallbackLocale && $route.path === '/'
       }"
       :key="locale"
-      :to="locale"
+      :to="location(locale)"
       class="px-4 py-2 bg-gray-300 hover:bg-gray-4000 text-gray-800"
     >
       {{ locale }}
@@ -17,6 +17,22 @@
   </div>
 </template>
 
+<script>
+export default {
+  methods: {
+    location(locale) {
+      if (locale === this.$i18n.locale) return this.$route.fullPath
+      let page = this.$route.fullPath
+      for (const locale of this.$i18n.availableLocales) {
+        if (page.startsWith(`/${locale}`)) {
+          page = page.slice(1 + locale.length)
+        }
+      }
+      return `/${locale}${page}`
+    }
+  }
+}
+</script>
 <style scoped>
 .nuxt-link-exact-active {
   @apply .bg-gray-400;

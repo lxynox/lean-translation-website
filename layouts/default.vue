@@ -1,8 +1,8 @@
 <template>
   <div>
-    <site-header :items="items"></site-header>
+    <site-header></site-header>
     <nuxt />
-    <site-footer :items="items"></site-footer>
+    <site-footer></site-footer>
   </div>
 </template>
 
@@ -14,9 +14,6 @@ export default {
   components: {
     siteHeader: Header,
     siteFooter: Footer
-  },
-  data() {
-    return { items: ['home', 'about', 'contact'] }
   }
 }
 </script>
