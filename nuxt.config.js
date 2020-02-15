@@ -57,6 +57,8 @@ export default {
     // routes: ['/', '/about', '/en', '/en/about']
   },
   router: {
-    middleware: 'i18n'
+    middleware: 'i18n',
+    mode: 'hash',
+    scrollBehavior: () => {}
   }
 }

@@ -16,23 +16,33 @@
         </li>
       </ul>
     </nav>
+
+    <div style="height: 100vh; background-color: lightblue">
+      block
+    </div>
+    <div id="about" style="height: 20vh; background-color: lightyellow">
+      target
+    </div>
   </header>
 </template>
 
 <script>
 import LanguageGroups from '@/components/LanguageGroups'
 
+const NAV_LINKS = ['home', 'about', 'contact']
+
 export default {
   components: { LanguageGroups },
   data() {
     return {
-      links: ['home', 'about', 'contact']
+      links: NAV_LINKS
     }
   },
   methods: {
     location(page) {
-      page = page !== 'home' ? `/${page}` : ''
-      return `/${this.$i18n.locale}${page}`
+      // page = page !== 'home' ? `/${page}` : ''
+      // return `/${this.$i18n.locale}${page}`
+      return page === 'home' ? '/' : `/${page}`
     }
   }
 }

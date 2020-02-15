@@ -14,6 +14,18 @@ export default {
   components: {
     siteHeader: Header,
     siteFooter: Footer
+  },
+  mounted() {
+    this.$router.onReady(() => this.tryScroll(this.$route))
+    this.$router.afterEach(this.tryScroll)
+  },
+  methods: {
+    tryScroll: (to) => {
+      const elm = document.getElementById(to.path.slice(1))
+      if (elm && elm.scrollIntoView) {
+        elm.scrollIntoView({ behavior: 'smooth' })
+      }
+    }
   }
 }
 </script>
