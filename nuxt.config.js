@@ -23,7 +23,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['@/node_modules/element-ui/lib/theme-chalk/index.css'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -38,12 +38,16 @@ export default {
     '@nuxtjs/stylelint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
-    ['~/modules/i18n.js', { defaultLocale: 'zh' }]
+    ['@/modules/i18n.js', { defaultLocale: 'zh' }]
   ],
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: ['nuxt-element-ui'],
+
+  elementUI: {
+    components: ['Button', 'DatePicker', 'Row', 'Col']
+  },
   /*
    ** Build configuration
    */

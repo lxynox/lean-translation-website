@@ -1,6 +1,6 @@
 <template>
   <header>
-    <h1 class="text-6xl text-center p-4 bg-gray-100">{{ $t('home.title') }}</h1>
+    <h1 class="text-center p-4 bg-gray-100">{{ $t('home.title') }}</h1>
     <language-groups></language-groups>
     <hr />
     <nav class="nav mx-4 my-2">
@@ -16,18 +16,11 @@
         </li>
       </ul>
     </nav>
-
-    <div style="height: 100vh; background-color: lightblue">
-      block
-    </div>
-    <div id="about" style="height: 20vh; background-color: lightyellow">
-      target
-    </div>
   </header>
 </template>
 
 <script>
-import LanguageGroups from '@/components/LanguageGroups'
+import LanguageGroups from '@/components/language_groups'
 
 const NAV_LINKS = ['home', 'about', 'contact']
 
@@ -56,5 +49,9 @@ export default {
 
 .menu {
   display: flex;
+}
+
+.nuxt-link-exact-active {
+  @apply .text-gray-700;
 }
 </style>

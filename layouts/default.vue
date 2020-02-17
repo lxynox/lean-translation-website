@@ -1,19 +1,24 @@
 <template>
-  <div>
+  <container>
     <site-header></site-header>
+    <sections></sections>
     <nuxt />
     <site-footer></site-footer>
-  </div>
+  </container>
 </template>
 
 <script>
-import Header from '@/components/Header.vue'
-import Footer from '@/components/Footer.vue'
+import Header from '@/components/header.vue'
+import Footer from '@/components/footer.vue'
+import Container from '@/components/container.vue'
+import Sections from '@/components/sections.vue'
 
 export default {
   components: {
     siteHeader: Header,
-    siteFooter: Footer
+    siteFooter: Footer,
+    container: Container,
+    sections: Sections
   },
   mounted() {
     this.$router.onReady(() => this.tryScroll(this.$route))
