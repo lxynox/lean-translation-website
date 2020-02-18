@@ -2,7 +2,6 @@
   <container>
     <site-header></site-header>
     <sections></sections>
-    <nuxt />
     <site-footer></site-footer>
   </container>
 </template>

@@ -4,7 +4,10 @@ export default function({ isHMR, app, store, route, params, error, redirect }) {
 
   // Get locale from params
   const defaultLocale = app.i18n.fallbackLocale
-  const locale = params.lang || defaultLocale
+
+  // FIX: language code must follow ISO 639‑1 standard
+  // https://en.wikipedia.org/wiki/Language_code
+  const locale = params.lang || route.path.slice(1, 3) || defaultLocale
 
   if (!app.i18n.availableLocales.includes(locale)) {
     return error({ message: 'This page could not be found.', statusCode: 404 })
