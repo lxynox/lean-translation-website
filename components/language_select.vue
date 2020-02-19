@@ -1,21 +1,19 @@
 <template>
-  <el-select
-    @change="onChange"
-    :value="locales[$i18n.locale]"
-    placeholder="Select"
-    class="w-16"
-  >
-    <el-option
-      v-for="(locale, index) in $i18n.availableLocales"
-      :key="index"
-      :label="locale"
-      :value="locale"
-      :class="{ 'text-gray-700': locale === $i18n.locale }"
-      class="border-0 text-gray-500"
-    >
-      {{ locales[locale] }}
-    </el-option>
-  </el-select>
+  <el-dropdown @command="onChange" :hide-on-click="false">
+    <span class="el-dropdown-link">
+      {{ locales[$i18n.locale] }}
+      <i class="el-icon-arrow-down el-icon--right"></i>
+    </span>
+    <el-dropdown-menu slot="dropdown" class="w-16">
+      <el-dropdown-item
+        v-for="(locale, index) in $i18n.availableLocales"
+        :command="locale"
+        :key="index"
+      >
+        {{ locales[locale] }}
+      </el-dropdown-item>
+    </el-dropdown-menu>
+  </el-dropdown>
 </template>
 
 <script>

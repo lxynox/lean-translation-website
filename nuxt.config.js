@@ -46,7 +46,22 @@ export default {
   modules: ['nuxt-element-ui'],
 
   elementUI: {
-    components: ['Button', 'DatePicker', 'Row', 'Col']
+    components: [
+      'Button',
+      'Row',
+      'Col',
+      // 'Card',
+      'Form',
+      'Input',
+      'FormItem',
+      'Select',
+      'Option',
+      'Icon',
+      'Image',
+      'Dropdown',
+      'DropdownMenu',
+      'DropdownItem'
+    ]
   },
   /*
    ** Build configuration
