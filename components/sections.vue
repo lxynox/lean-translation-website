@@ -59,7 +59,7 @@
 
     <div ref="about">
       <el-row :gutter="10" class="text-center border-0">
-        <el-col :xs="24" :md="12" xl="8" class="mt-16">
+        <el-col :xs="24" :md="12" :xl="8" class="mt-16">
           <h3 class="py-4">Heading</h3>
           <p>
             Stripe is an always-improving toolchain that gains new features
@@ -69,7 +69,7 @@
             technologies.
           </p>
         </el-col>
-        <el-col :xs="24" :md="12" xl="8" class="mt-16">
+        <el-col :xs="24" :md="12" :xl="8" class="mt-16">
           <h3 class="py-4">Heading</h3>
           <p>
             Stripe is an always-improving toolchain that gains new features
@@ -79,7 +79,7 @@
             technologies.
           </p>
         </el-col>
-        <el-col :xs="24" :md="12" xl="8" class="mt-16">
+        <el-col :xs="24" :md="12" :xl="8" class="mt-16">
           <h3 class="py-4">Heading</h3>
           <p>
             Stripe is an always-improving toolchain that gains new features
@@ -133,16 +133,15 @@ export default {
     }
   },
   mounted() {
-    this.$router.afterEach(this.onRouteChange)
+    this.$root.$on('scroll', this.onScroll)
   },
   methods: {
     onSubmit() {
       console.log('submit!')
     },
-    onRouteChange(to) {
+    onScroll(to) {
       // trim heading '/'
-      const refName = to.path.slice(1) || 'home'
-      const elm = this.$refs[refName]
+      const elm = this.$refs[to]
       if ('scrollTo' in window) {
         const yPos =
           elm.getBoundingClientRect().top + document.documentElement.scrollTop
