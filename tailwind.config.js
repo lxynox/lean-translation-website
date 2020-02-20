@@ -1,3 +1,5 @@
+const { colors } = require('tailwindcss/defaultTheme')
+
 /*
  ** TailwindCSS Configuration File
  **
@@ -5,7 +7,13 @@
  ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
  */
 module.exports = {
-  theme: {},
+  theme: {
+    colors: {
+      ...colors,
+      primary: 'var(--color-primary)',
+      secondary: 'var(--color-secondary)'
+    }
+  },
   variants: {},
   plugins: []
 }

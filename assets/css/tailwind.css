@@ -1,3 +1,15 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+/* In your CSS */
+:root {
+  --color-primary: rgb(108, 99, 255);
+  --color-secondary: #3ecf8e;
+  --color-bg-gray: #f3f4f5;
+  /* ... */
+}
+
+h3 {
+  @apply text-2xl;
+}

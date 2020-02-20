@@ -1,7 +1,18 @@
 <template>
   <div class="relative">
-    <div class="waves w-full absolute bg-cover h-32">
-      <div @click="onClick" class="bounce flex flex-col items-center h-16">
+    <div
+      :class="{
+        waves: isWave,
+        triangle: !isWave,
+        'triangle-gray': !isWave && color === 'gray'
+      }"
+      class="w-full absolute bg-cover h-32 md:h-64"
+    >
+      <div
+        v-if="isWave"
+        @click="onClick"
+        class="bounce flex flex-col items-center h-16"
+      >
         <i class="el-icon-d-arrow-right mt-12"></i>
       </div>
     </div>
@@ -10,6 +21,13 @@
 
 <script>
 export default {
+  props: {
+    isWave: Boolean,
+    color: {
+      type: String,
+      default: 'white'
+    }
+  },
   methods: {
     onClick() {
       if ('scrollTo' in window) {
@@ -23,12 +41,26 @@ export default {
 
 <style scoped>
 .bg-gray {
-  background-color: #f3f4f5;
+  background-color: var(--color-bg-gray);
 }
 
 .waves {
   background-image: url('/waves.svg');
   top: -8rem; /* same as height of its container */
+}
+
+.triangle,
+.triangle-gray {
+  top: 0; /* same as height of its container */
+}
+
+.triangle {
+  background-image: url('/triangle.svg');
+}
+
+.triangle-gray {
+  background-image: url('/triangle-gray.svg');
+  top: 0; /* same as height of its container */
 }
 
 .waves .el-icon-d-arrow-right {

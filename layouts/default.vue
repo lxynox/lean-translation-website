@@ -24,17 +24,14 @@ export default {
     LanguageSelect
   },
   mounted() {
-    this.$router.onReady(() => this.tryScroll(this.$route))
-    this.$router.afterEach(this.tryScroll)
+    this.$router.onReady(() => {
+      let path = this.$route.path
+      const currentLocale = this.$i18n.locale
+      if (currentLocale !== this.$i18n.fallbackLocale) path = path.slice(3)
+      this.$root.$emit('scroll', path.slice(1))
+    })
   },
-  methods: {
-    tryScroll: (to) => {
-      const elm = document.getElementById(to.path.slice(1))
-      if (elm && elm.scrollIntoView) {
-        elm.scrollIntoView({ behavior: 'smooth' })
-      }
-    }
-  }
+  methods: {}
 }
 </script>
 

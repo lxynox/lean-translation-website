@@ -1,17 +1,17 @@
 <template>
   <div class="fixed top-0 right-0 p-4 z-10">
     <el-dropdown @command="onChange" :hide-on-click="true">
-      <span class="el-dropdown-link">
-        {{ locales[$i18n.locale] }}
+      <span class="el-dropdown-link text-gray-500">
+        {{ getDropdownItemText($i18n.locale) }}
         <i class="el-icon-arrow-down el-icon--right"></i>
       </span>
-      <el-dropdown-menu slot="dropdown" class="w-16">
+      <el-dropdown-menu slot="dropdown">
         <el-dropdown-item
           v-for="(locale, index) in $i18n.availableLocales"
           :command="locale"
           :key="index"
         >
-          {{ locales[locale] }}
+          {{ getDropdownItemText(locale) }}
         </el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
@@ -31,6 +31,9 @@ export default {
     }
   },
   methods: {
+    getDropdownItemText(locale) {
+      return `${this.locales[locale]} ${this.$t('lang.' + locale)}`
+    },
     onChange(locale) {
       let path = this.$route.path
       const currentLocale = this.$i18n.locale

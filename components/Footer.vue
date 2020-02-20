@@ -1,6 +1,6 @@
 <template>
-  <footer class="flex justify-center bg-gray-200 py-4">
-    ⓒLean Translation Co. {{ currentYear }}
+  <footer class="footer h-32 flex justify-center py-4 text-white">
+    ⓒ Lean Translation Co. {{ currentYear }}
   </footer>
 </template>
 
@@ -16,3 +16,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.footer {
+  background: #141e30; /* fallback for old browsers */
+  background: linear-gradient(to bottom, #141e30, #243b55);
+}
+</style>

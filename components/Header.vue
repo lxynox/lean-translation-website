@@ -9,13 +9,15 @@
           alt="site logo"
         ></el-image>
       </div> -->
+      <div class="pt-12 px-8">
+        <el-image :src="'/header-image.svg'" :fit="'fill'"> </el-image>
+      </div>
       <h1
-        class="pt-8 text-4xl lg:text-6xl flex-grow text-white text-center font-bold"
+        class="pt-4 text-4xl lg:text-6xl flex-grow text-white text-center font-black"
       >
         {{ $t('home.title') }}
       </h1>
-      <el-image :src="'/header-image.png'" :fit="'contain'"> </el-image>
-      <waves></waves>
+      <waves :isWave="true"></waves>
     </div>
   </header>
 </template>
@@ -30,10 +32,15 @@ export default {
 
 <style scoped>
 .header {
-  background-color: #00cba9;
+  background: #3f2b96; /* fallback for old browsers */
+  background: linear-gradient(
+    to bottom,
+    var(--color-primary),
+    #a8c0ff
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.header h1 {
-  margin-top: -0.5rem;
+.header .el-image {
+  height: 50vh;
 }
 </style>

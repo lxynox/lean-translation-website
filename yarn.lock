@@ -9376,6 +9376,11 @@ vue-server-renderer@^2.6.11:
     serialize-javascript "^2.1.2"
     source-map "0.5.6"
 
+vue-sticky-directive@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.npm.taobao.org/vue-sticky-directive/download/vue-sticky-directive-0.0.10.tgz#07cc87da8732d0c9fc25bc4a6bcbe8329b54efbc"
+  integrity sha1-B8yH2ocy0Mn8JbxKa8voMptU77w=
+
 vue-style-loader@^4.1.0:
   version "4.1.2"
   resolved "https://registry.npm.taobao.org/vue-style-loader/download/vue-style-loader-4.1.2.tgz#dedf349806f25ceb4e64f3ad7c0a44fba735fcf8"
