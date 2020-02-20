@@ -1,7 +1,18 @@
 <template>
-  <footer class="flex justify-center bg-gray-200 py-4">ⓒ2020</footer>
+  <footer class="flex justify-center bg-gray-200 py-4">
+    ⓒLean Translation Co. {{ currentYear }}
+  </footer>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      currentYear: (function() {
+        const today = new Date()
+        return today.getFullYear()
+      })()
+    }
+  }
+}
 </script>

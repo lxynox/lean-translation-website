@@ -1,19 +1,21 @@
 <template>
-  <el-dropdown @command="onChange" :hide-on-click="false">
-    <span class="el-dropdown-link">
-      {{ locales[$i18n.locale] }}
-      <i class="el-icon-arrow-down el-icon--right"></i>
-    </span>
-    <el-dropdown-menu slot="dropdown" class="w-16">
-      <el-dropdown-item
-        v-for="(locale, index) in $i18n.availableLocales"
-        :command="locale"
-        :key="index"
-      >
-        {{ locales[locale] }}
-      </el-dropdown-item>
-    </el-dropdown-menu>
-  </el-dropdown>
+  <div class="fixed top-0 right-0 p-4 z-10">
+    <el-dropdown @command="onChange" :hide-on-click="true">
+      <span class="el-dropdown-link">
+        {{ locales[$i18n.locale] }}
+        <i class="el-icon-arrow-down el-icon--right"></i>
+      </span>
+      <el-dropdown-menu slot="dropdown" class="w-16">
+        <el-dropdown-item
+          v-for="(locale, index) in $i18n.availableLocales"
+          :command="locale"
+          :key="index"
+        >
+          {{ locales[locale] }}
+        </el-dropdown-item>
+      </el-dropdown-menu>
+    </el-dropdown>
+  </div>
 </template>
 
 <script>

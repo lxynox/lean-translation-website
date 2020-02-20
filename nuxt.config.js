@@ -27,7 +27,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['@/plugins/directives.js'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -60,7 +60,9 @@ export default {
       'Image',
       'Dropdown',
       'DropdownMenu',
-      'DropdownItem'
+      'DropdownItem',
+      'Menu',
+      'MenuItem'
     ]
   },
   /*
