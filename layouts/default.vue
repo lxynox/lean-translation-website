@@ -28,7 +28,8 @@ export default {
       let path = this.$route.path
       const currentLocale = this.$i18n.locale
       if (currentLocale !== this.$i18n.fallbackLocale) path = path.slice(3)
-      this.$root.$emit('scroll', path.slice(1))
+      path = path.slice(1)
+      if (path) this.$root.$emit('scroll', path)
     })
   },
   methods: {}

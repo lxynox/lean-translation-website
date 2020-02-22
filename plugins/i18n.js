@@ -10,6 +10,7 @@ export default (params) => {
   // This way we can use it in middleware and pages asyncData/fetch
   const opts = {
     // locale: store.state.locale,
+    locale: `<%= options.defaultLocale %>`,
     fallbackLocale: `<%= options.defaultLocale %>`,
     messages: JSON.parse(`<%= options.messages %>`)
   }

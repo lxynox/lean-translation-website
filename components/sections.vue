@@ -1,8 +1,12 @@
 <template>
-  <div>
-    <div ref="home" class="md:py-16 bg-gray">
+  <div class="-m-px">
+    <div ref="home" class="md:pt-16 bg-gray">
       <container>
-        <el-row :gutter="10" class="text-center border-0 p-4">
+        <el-row
+          v-animate="'slide-in'"
+          :gutter="10"
+          class="text-center border-0 p-8 pt-0"
+        >
           <el-col :xs="24" :md="12">
             <el-image
               :src="'/fast.svg'"
@@ -26,7 +30,11 @@
             </div>
           </el-col>
         </el-row>
-        <el-row :gutter="10" class="text-center border-0 p-4 md:px-32">
+        <el-row
+          v-animate="'slide-in'"
+          :gutter="10"
+          class="lg:flex lg:flex-row-reverse text-center border-0 p-8"
+        >
           <el-col :xs="24" :md="12">
             <el-image
               :src="'/reliable.svg'"
@@ -50,7 +58,11 @@
             </div>
           </el-col>
         </el-row>
-        <el-row :gutter="10" class="text-center border-0 p-4 md:px-32">
+        <el-row
+          v-animate="'slide-in'"
+          :gutter="10"
+          class="text-center border-0 p-8"
+        >
           <el-col :xs="24" :md="12">
             <el-image
               :src="'/accurate.svg'"
@@ -75,17 +87,25 @@
           </el-col>
         </el-row>
       </container>
-      <waves :color="'gray'"></waves>
+      <div class="overflow-hidden">
+        <div class="triangle-white"></div>
+      </div>
     </div>
 
-    <div ref="about" class="bg-white pt-32">
+    <div ref="about" class="bg-white pt-4">
       <el-row :gutter="10" class="border-0">
-        <el-col :xs="24" :md="12" :xl="8" class="mt-16">
+        <el-col
+          v-animate="'fade-in'"
+          :xs="24"
+          :md="12"
+          :xl="8"
+          class="md:mt-16"
+        >
           <h2 class="p-4 px-16 uppercase text-secondary text-2xl font-semibold">
             <el-image :fit="'fill'" src="/germany.png"></el-image>
             <div>Heading</div>
           </h2>
-          <p class="py-4 px-16 lg:px-4">
+          <p class="py-4 px-16">
             Stripe is an always-improving toolchain that gains new features
             every month. Our world-class engineering team constantly iterates
             upon every facet of the Stripe stack. And from Apple Pay to Alipay,
@@ -93,12 +113,18 @@
             technologies.
           </p>
         </el-col>
-        <el-col :xs="24" :md="12" :xl="8" class="mt-16">
+        <el-col
+          v-animate="'fade-in'"
+          :xs="24"
+          :md="12"
+          :xl="8"
+          class="md:mt-16"
+        >
           <h2 class="p-4 px-16 uppercase text-secondary text-2xl font-semibold">
             <el-image :fit="'fill'" src="/translation.png"></el-image>
             <div>Heading</div>
           </h2>
-          <p class="py-4 px-16 lg:px-4">
+          <p class="py-4 px-16">
             Stripe is an always-improving toolchain that gains new features
             every month. Our world-class engineering team constantly iterates
             upon every facet of the Stripe stack. And from Apple Pay to Alipay,
@@ -106,12 +132,18 @@
             technologies.
           </p>
         </el-col>
-        <el-col :xs="24" :md="12" :xl="8" class="mt-16">
+        <el-col
+          v-animate="'fade-in'"
+          :xs="24"
+          :md="12"
+          :xl="8"
+          class="md:mt-16"
+        >
           <h2 class="p-4 px-16 uppercase text-secondary text-2xl font-semibold">
             <el-image :fit="'fill'" src="/linux.png"></el-image>
             <div>Heading</div>
           </h2>
-          <p class="py-4 px-16 lg:px-4">
+          <p class="py-4 px-16">
             Stripe is an always-improving toolchain that gains new features
             every month. Our world-class engineering team constantly iterates
             upon every facet of the Stripe stack. And from Apple Pay to Alipay,
@@ -120,26 +152,42 @@
           </p>
         </el-col>
       </el-row>
-      <waves></waves>
+      <div class="overflow-hidden">
+        <div class="triangle-gray"></div>
+      </div>
     </div>
 
-    <div ref="contact" class="contact-form mx-auto w-full py-32 md:py-64">
+    <div ref="contact" class="contact-form mx-auto w-full pt-4 pb-8">
       <el-form :model="form" class="mx-auto w-1/2">
-        <el-form-item>
+        <div class="flex flex-col-reverse">
+          <div v-if="errorMessages.name" class="pt-1 text-red-600">
+            name required
+          </div>
           <el-input v-model="form.name" placeholder="NAME"></el-input>
-        </el-form-item>
-        <el-form-item>
-          <el-input v-model="form.email" placeholder="EMAIL"></el-input>
-        </el-form-item>
-        <el-form-item>
+        </div>
+        <div class="flex flex-col-reverse mt-4">
+          <div v-if="errorMessages.email" class="pt-1 text-red-600">
+            email required
+          </div>
+          <el-input
+            v-model="form.email"
+            placeholder="EMAIL"
+            class="flex flex-col-reverse"
+          ></el-input>
+        </div>
+        <div class="flex flex-col-reverse mt-4">
+          <div v-if="errorMessages.message" class="pt-1 text-red-600">
+            message required
+          </div>
           <el-input
             :autosize="{ minRows: 4, maxRows: 6 }"
-            v-model="form.desc"
+            v-model="form.message"
             type="textarea"
-            placeholder="MESSAGES"
+            placeholder="MESSAGE"
+            class="flex flex-col-reverse"
           ></el-input>
-        </el-form-item>
-        <el-form-item class="flex justify-end">
+        </div>
+        <el-form-item class="flex justify-end mt-4">
           <el-button @click="onSubmit" class="submit-btn">Submit</el-button>
         </el-form-item>
       </el-form>
@@ -149,35 +197,41 @@
 
 <script>
 import Container from '@/components/container.vue'
-import Waves from '@/components/waves.vue'
+
+const initState = () => ({
+  name: '',
+  email: '',
+  message: ''
+})
 
 export default {
-  components: { Container, Waves },
+  components: { Container },
   data() {
     return {
-      form: {
-        name: '',
-        region: '',
-        date1: '',
-        date2: '',
-        deliver: false,
-        type: [],
-        resource: '',
-        desc: ''
-      }
+      form: initState(),
+      errorMessages: initState()
     }
   },
   mounted() {
     this.$root.$on('scroll', this.onScroll)
   },
   methods: {
+    validate() {
+      this.errorMessages = initState()
+      if (!this.form.name) this.errorMessages.name = 'name required'
+      if (!this.form.email) this.errorMessages.email = 'email required'
+      if (!this.form.message) this.errorMessages.message = 'message required'
+      return Object.keys(this.errorMessages).length === 0
+    },
     onSubmit() {
-      console.log('submit!')
+      if (!this.validate()) return
+      const formEl = this.$refs.contact
+      const formData = new FormData(formEl)
+      console.log('[form data]', formData)
     },
     onScroll(to) {
-      // trim heading '/'
       const elm = this.$refs[to]
-      if ('scrollTo' in window) {
+      if ('scrollTo' in window && elm) {
         const yPos =
           elm.getBoundingClientRect().top + document.documentElement.scrollTop
         // TODO: change
@@ -204,12 +258,48 @@ button.submit-btn {
   background-color: var(--color-primary);
   color: white;
 }
+
+.triangle-white {
+  border: 20vw solid transparent;
+  border-left: 100vw solid white;
+  border-bottom: 0;
+}
+
+.triangle-gray {
+  border: 20vw solid transparent;
+  border-left: 100vw solid var(--color-bg-gray);
+  border-bottom: 0;
+}
 </style>
 
 <style>
-/* .contact-form .el-input__inner {
-  border: none;
-  border-bottom: 1px solid #dcdfe6;
-  border-radius: none;
-} */
+.contact-form .el-form-item__label {
+  color: red;
+}
+
+.animate {
+  transition-delay: 0.2s;
+  transition-duration: 1s;
+  transition-timing-function: ease-in;
+}
+
+.slide-in:nth-child(2n) {
+  transform: translateX(-200px);
+}
+
+.slide-in:nth-child(2n + 1) {
+  transform: translateX(200px);
+}
+
+.slide-in.animate-active {
+  transform: translateX(0);
+}
+
+.fade-in {
+  opacity: 0;
+}
+
+.fade-in.animate-active {
+  opacity: 1;
+}
 </style>

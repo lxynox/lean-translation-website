@@ -22,6 +22,7 @@
   "dependencies": {
     "nuxt": "^2.0.0",
     "nuxt-element-ui": "^1.0.10",
+    "vue-animate-scroll": "^0.1.5",
     "vue-sticky-directive": "^0.0.10"
   },
   "devDependencies": {

@@ -9295,6 +9295,11 @@ vm-browserify@^1.0.1:
   resolved "https://registry.npm.taobao.org/vm-browserify/download/vm-browserify-1.1.2.tgz?cache=0&sync_timestamp=1572870776965&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvm-browserify%2Fdownload%2Fvm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha1-eGQcSIuObKkadfUR56OzKobl3aA=
 
+vue-animate-scroll@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.npm.taobao.org/vue-animate-scroll/download/vue-animate-scroll-0.1.5.tgz#28db28bacdbd6009fe56e07be3d4384770e7f1af"
+  integrity sha1-KNsous29YAn+VuB749Q4R3Dn8a8=
+
 vue-client-only@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npm.taobao.org/vue-client-only/download/vue-client-only-2.0.0.tgz#ddad8d675ee02c761a14229f0e440e219de1da1c"

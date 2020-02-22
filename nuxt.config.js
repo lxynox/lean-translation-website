@@ -27,7 +27,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/directives.js'],
+  plugins: ['@/plugins/sticky.js', '@/plugins/scroll-animate.js'],
   /*
    ** Nuxt.js dev-modules
    */
