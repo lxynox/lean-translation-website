@@ -1,7 +1,7 @@
 <template>
   <div class="-m-px">
     <div ref="home" class="md:pt-16 bg-gray">
-      <container>
+      <container class="overflow-hidden">
         <el-row
           v-animate="'slide-in'"
           :gutter="10"
@@ -93,65 +93,73 @@
     </div>
 
     <div ref="about" class="bg-white pt-4">
-      <el-row :gutter="10" class="border-0">
-        <el-col
-          v-animate="'fade-in'"
-          :xs="24"
-          :md="12"
-          :xl="8"
-          class="md:mt-16"
-        >
-          <h2 class="p-4 px-16 uppercase text-secondary text-2xl font-semibold">
-            <el-image :fit="'fill'" src="/germany.png"></el-image>
-            <div>Heading</div>
-          </h2>
-          <p class="py-4 px-16">
-            Stripe is an always-improving toolchain that gains new features
-            every month. Our world-class engineering team constantly iterates
-            upon every facet of the Stripe stack. And from Apple Pay to Alipay,
-            building on Stripe means you get early access to the latest
-            technologies.
-          </p>
-        </el-col>
-        <el-col
-          v-animate="'fade-in'"
-          :xs="24"
-          :md="12"
-          :xl="8"
-          class="md:mt-16"
-        >
-          <h2 class="p-4 px-16 uppercase text-secondary text-2xl font-semibold">
-            <el-image :fit="'fill'" src="/translation.png"></el-image>
-            <div>Heading</div>
-          </h2>
-          <p class="py-4 px-16">
-            Stripe is an always-improving toolchain that gains new features
-            every month. Our world-class engineering team constantly iterates
-            upon every facet of the Stripe stack. And from Apple Pay to Alipay,
-            building on Stripe means you get early access to the latest
-            technologies.
-          </p>
-        </el-col>
-        <el-col
-          v-animate="'fade-in'"
-          :xs="24"
-          :md="12"
-          :xl="8"
-          class="md:mt-16"
-        >
-          <h2 class="p-4 px-16 uppercase text-secondary text-2xl font-semibold">
-            <el-image :fit="'fill'" src="/linux.png"></el-image>
-            <div>Heading</div>
-          </h2>
-          <p class="py-4 px-16">
-            Stripe is an always-improving toolchain that gains new features
-            every month. Our world-class engineering team constantly iterates
-            upon every facet of the Stripe stack. And from Apple Pay to Alipay,
-            building on Stripe means you get early access to the latest
-            technologies.
-          </p>
-        </el-col>
-      </el-row>
+      <container>
+        <el-row :gutter="10" class="border-0">
+          <el-col
+            v-animate="'fade-in'"
+            :xs="24"
+            :md="12"
+            :xl="8"
+            class="md:mt-16"
+          >
+            <h2
+              class="p-4 px-16 uppercase text-secondary text-2xl font-semibold"
+            >
+              <el-image :fit="'fill'" src="/germany.png"></el-image>
+              <div>Heading</div>
+            </h2>
+            <p class="py-4 px-16">
+              Stripe is an always-improving toolchain that gains new features
+              every month. Our world-class engineering team constantly iterates
+              upon every facet of the Stripe stack. And from Apple Pay to
+              Alipay, building on Stripe means you get early access to the
+              latest technologies.
+            </p>
+          </el-col>
+          <el-col
+            v-animate="'fade-in'"
+            :xs="24"
+            :md="12"
+            :xl="8"
+            class="md:mt-16"
+          >
+            <h2
+              class="p-4 px-16 uppercase text-secondary text-2xl font-semibold"
+            >
+              <el-image :fit="'fill'" src="/translation.png"></el-image>
+              <div>Heading</div>
+            </h2>
+            <p class="py-4 px-16">
+              Stripe is an always-improving toolchain that gains new features
+              every month. Our world-class engineering team constantly iterates
+              upon every facet of the Stripe stack. And from Apple Pay to
+              Alipay, building on Stripe means you get early access to the
+              latest technologies.
+            </p>
+          </el-col>
+          <el-col
+            v-animate="'fade-in'"
+            :xs="24"
+            :md="12"
+            :xl="8"
+            class="md:mt-16"
+          >
+            <h2
+              class="p-4 px-16 uppercase text-secondary text-2xl font-semibold"
+            >
+              <el-image :fit="'fill'" src="/linux.png"></el-image>
+              <div>Heading</div>
+            </h2>
+            <p class="py-4 px-16">
+              Stripe is an always-improving toolchain that gains new features
+              every month. Our world-class engineering team constantly iterates
+              upon every facet of the Stripe stack. And from Apple Pay to
+              Alipay, building on Stripe means you get early access to the
+              latest technologies.
+            </p>
+          </el-col>
+        </el-row>
+      </container>
       <div class="overflow-hidden">
         <div class="triangle-gray"></div>
       </div>
@@ -188,8 +196,20 @@
           ></el-input>
         </div>
         <el-form-item class="flex justify-end mt-4">
-          <el-button @click="onSubmit" class="submit-btn">Submit</el-button>
+          <el-button
+            @click="onSubmit"
+            :disabled="isSubmitting"
+            class="submit-btn"
+            >Submit</el-button
+          >
         </el-form-item>
+        <el-alert
+          v-if="submitStatus"
+          :title="alertTitle"
+          :type="alertType"
+          show-icon
+        >
+        </el-alert>
       </el-form>
     </div>
   </div>
@@ -209,7 +229,19 @@ export default {
   data() {
     return {
       form: initState(),
-      errorMessages: initState()
+      errorMessages: initState(),
+      submitStatus: '',
+      isSubmitting: false
+    }
+  },
+  computed: {
+    alertTitle() {
+      return this.submitStatus === 'success'
+        ? 'Thanks for submission!'
+        : 'something went wrong :('
+    },
+    alertType() {
+      return this.submitStatus === 'success' ? 'success' : 'error'
     }
   },
   mounted() {
@@ -221,13 +253,33 @@ export default {
       if (!this.form.name) this.errorMessages.name = 'name required'
       if (!this.form.email) this.errorMessages.email = 'email required'
       if (!this.form.message) this.errorMessages.message = 'message required'
-      return Object.keys(this.errorMessages).length === 0
+      return Object.keys(this.errorMessages).every(
+        (k) => !this.errorMessages[k]
+      )
     },
     onSubmit() {
       if (!this.validate()) return
-      const formEl = this.$refs.contact
-      const formData = new FormData(formEl)
-      console.log('[form data]', formData)
+      const data = JSON.stringify({
+        to: 'lxynox@gmail.com', // TODO: change to 1604021462@qq.com
+        subject: '扬州天下新肺炎发现多个疑似病bta例',
+        text: `${this.form.message}\n mesage sent from ${this.form.name} ${this.form.email}`
+      })
+      this.isSubmitting = true
+      fetch('https://now-emails.now.sh/api/email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: data
+      })
+        .then((res) => res.json)
+        .then(
+          () => (this.submitStatus = 'success'),
+          () => (this.submitStatus = 'error')
+        )
+        .finally(() => {
+          this.isSubmitting = false
+        })
     },
     onScroll(to) {
       const elm = this.$refs[to]
