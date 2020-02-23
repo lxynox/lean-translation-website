@@ -62,7 +62,11 @@ export default {
       'DropdownMenu',
       'DropdownItem',
       'Menu',
-      'MenuItem'
+      'MenuItem',
+      'Tooltip',
+      'Alert',
+      'Carousel',
+      'CarouselItem'
     ]
   },
   /*

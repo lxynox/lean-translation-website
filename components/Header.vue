@@ -3,9 +3,13 @@
     <div class="h-75vh"></div>
     <waves></waves>
     <div class="relative content">
-      <div class="absolute">
+      <div class="absolute w-full">
         <div class="pt-12 px-8">
-          <el-image :src="'/header-image.svg'" :fit="'fill'"> </el-image>
+          <el-carousel indicator-position="outside" height="50vh">
+            <el-carousel-item v-for="image in bgImages" :key="image">
+              <el-image :src="image" fit="fill"></el-image>
+            </el-carousel-item>
+          </el-carousel>
         </div>
         <h1
           class="pt-4 text-4xl lg:text-6xl flex-grow text-gray-700 text-center font-black"
@@ -19,8 +23,18 @@
 
 <script>
 import Waves from '@/components/waves.vue'
+
+const BG_IMAGES = [
+  '/header-image-1.svg',
+  '/header-image-3.svg',
+  '/header-image-4.svg'
+]
+
 export default {
-  components: { Waves }
+  components: { Waves },
+  created() {
+    this.bgImages = BG_IMAGES
+  }
 }
 </script>
 
