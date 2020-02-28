@@ -17,6 +17,12 @@ export default function({ isHMR, app, store, route, params, error, redirect }) {
   // store.commit('SET_LANG', locale)
   app.i18n.locale = locale
 
+  // load google fonts
+  if (locale !== defaultLocale) {
+    require('typeface-suez-one')
+    require('typeface-lato')
+  }
+
   // If route is /<defaultLocale>/... -> redirect to /...
   if (
     locale === defaultLocale &&

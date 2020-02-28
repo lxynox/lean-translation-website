@@ -22,6 +22,10 @@
   "dependencies": {
     "nuxt": "^2.0.0",
     "nuxt-element-ui": "^1.0.10",
+    "typeface-lato": "^0.0.75",
+    "typeface-noto-sans-sc": "^0.0.71",
+    "typeface-suez-one": "^0.0.72",
+    "typeface-zcool-kuaile": "^0.0.71",
     "vue-animate-scroll": "^0.1.5",
     "vue-sticky-directive": "^0.0.10",
     "vue-typer": "^1.2.0"

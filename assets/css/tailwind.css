@@ -10,6 +10,10 @@
   /* ... */
 }
 
-h3 {
-  @apply text-2xl;
+.lang-zh h1, h2, h3, h4, h5, h6 {
+  font-family: 'ZCOOL KuaiLe', sans-serif;
+}
+
+.lang-en h1, h2, h3, h4, h5, h6 {
+  font-family: 'Suez One', sans-serif;
 }

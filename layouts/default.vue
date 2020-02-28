@@ -1,5 +1,11 @@
 <template>
-  <div sticky-container>
+  <div
+    :class="{
+      'lang-en': $i18n.locale === 'en',
+      'lang-zh': $i18n.locale === 'zh'
+    }"
+    sticky-container
+  >
     <site-header></site-header>
     <site-nav></site-nav>
     <sections></sections>
@@ -14,6 +20,9 @@ import Nav from '@/components/nav.vue'
 import Footer from '@/components/footer.vue'
 import Sections from '@/components/sections.vue'
 import LanguageSelect from '@/components/language_select'
+
+// Load ZCOOL KuaiLe typeface
+require('typeface-zcool-kuaile')
 
 export default {
   components: {
@@ -38,9 +47,9 @@ export default {
 
 <style>
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, '华文细黑', 'Microsoft YaHei', '微软雅黑',
-    sans-serif;
+  font-family: 'Lato', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans SC', '华文细黑',
+    'Microsoft YaHei', '微软雅黑', sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;

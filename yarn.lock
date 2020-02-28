@@ -8962,6 +8962,26 @@ typedarray@^0.0.6:
   resolved "https://registry.npm.taobao.org/typedarray/download/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
+typeface-lato@^0.0.75:
+  version "0.0.75"
+  resolved "https://registry.npm.taobao.org/typeface-lato/download/typeface-lato-0.0.75.tgz#8aa11c5611dc38416837c089b265a2abd1f7dd31"
+  integrity sha1-iqEcVhHcOEFoN8CJsmWiq9H33TE=
+
+typeface-noto-sans-sc@^0.0.71:
+  version "0.0.71"
+  resolved "https://registry.npm.taobao.org/typeface-noto-sans-sc/download/typeface-noto-sans-sc-0.0.71.tgz#214f27e781f59535a7a4d63de6d490124e8076b2"
+  integrity sha1-IU8n54H1lTWnpNY95tSQEk6AdrI=
+
+typeface-suez-one@^0.0.72:
+  version "0.0.72"
+  resolved "https://registry.npm.taobao.org/typeface-suez-one/download/typeface-suez-one-0.0.72.tgz#e1a055b889220539de0a01e7b2ddb118fcd75ed0"
+  integrity sha1-4aBVuIkiBTneCgHnst2xGPzXXtA=
+
+typeface-zcool-kuaile@^0.0.71:
+  version "0.0.71"
+  resolved "https://registry.npm.taobao.org/typeface-zcool-kuaile/download/typeface-zcool-kuaile-0.0.71.tgz#5c4cfc3631082922db65386af7cf144d4be64394"
+  integrity sha1-XEz8NjEIKSLbZThq988UTUvmQ5Q=
+
 ua-parser-js@^0.7.20:
   version "0.7.21"
   resolved "https://registry.npm.taobao.org/ua-parser-js/download/ua-parser-js-0.7.21.tgz#853cf9ce93f642f67174273cc34565ae6f308777"
