@@ -1,6 +1,6 @@
 <template>
   <div class="-m-px">
-    <div ref="home" class="md:pt-16 bg-gray">
+    <section ref="home" class="md:pt-16 bg-gray">
       <container class="overflow-hidden">
         <el-row
           v-animate="'slide-in'"
@@ -90,9 +90,9 @@
       <div class="overflow-hidden">
         <div class="triangle-white"></div>
       </div>
-    </div>
+    </section>
 
-    <div ref="about" class="bg-white pt-4">
+    <section ref="about" class="bg-white pt-4">
       <container>
         <el-row :gutter="10" class="border-0">
           <el-col
@@ -163,55 +163,66 @@
       <div class="overflow-hidden">
         <div class="triangle-gray"></div>
       </div>
-    </div>
+    </section>
 
-    <div ref="contact" class="contact-form mx-auto w-full pt-4 pb-8">
-      <el-form :model="form" class="mx-auto w-1/2">
-        <div class="flex flex-col-reverse">
-          <div v-if="errorMessages.name" class="pt-1 text-red-600">
-            name required
+    <section ref="contact" class="contact-section w-full pt-4 pb-8">
+      <el-card :body-style="{ padding: '0px' }" class="w-1/2 mx-auto">
+        <h3 class="contact-card-heading text-center text-white font-bold py-8">
+          Contact Form
+        </h3>
+        <el-form :model="form" class="mx-auto p-4">
+          <div class="flex flex-col-reverse">
+            <div v-if="errorMessages.name" class="pt-1 text-red-600 text-right">
+              name required
+            </div>
+            <el-input v-model="form.name" placeholder="NAME"></el-input>
           </div>
-          <el-input v-model="form.name" placeholder="NAME"></el-input>
-        </div>
-        <div class="flex flex-col-reverse mt-4">
-          <div v-if="errorMessages.email" class="pt-1 text-red-600">
-            email required
+          <div class="flex flex-col-reverse mt-4">
+            <div
+              v-if="errorMessages.email"
+              class="pt-1 text-red-600 text-right"
+            >
+              email required
+            </div>
+            <el-input
+              v-model="form.email"
+              placeholder="EMAIL"
+              class="flex flex-col-reverse"
+            ></el-input>
           </div>
-          <el-input
-            v-model="form.email"
-            placeholder="EMAIL"
-            class="flex flex-col-reverse"
-          ></el-input>
-        </div>
-        <div class="flex flex-col-reverse mt-4">
-          <div v-if="errorMessages.message" class="pt-1 text-red-600">
-            message required
+          <div class="flex flex-col-reverse mt-4">
+            <div
+              v-if="errorMessages.message"
+              class="pt-1 text-red-600 text-right"
+            >
+              message required
+            </div>
+            <el-input
+              :autosize="{ minRows: 4, maxRows: 6 }"
+              v-model="form.message"
+              type="textarea"
+              placeholder="MESSAGE"
+              class="flex flex-col-reverse"
+            ></el-input>
           </div>
-          <el-input
-            :autosize="{ minRows: 4, maxRows: 6 }"
-            v-model="form.message"
-            type="textarea"
-            placeholder="MESSAGE"
-            class="flex flex-col-reverse"
-          ></el-input>
-        </div>
-        <el-form-item class="flex justify-end mt-4">
-          <el-button
-            @click="onSubmit"
-            :disabled="isSubmitting"
-            class="submit-btn"
-            >Submit</el-button
+          <el-form-item class="flex justify-end mt-4">
+            <el-button
+              @click="onSubmit"
+              :disabled="isSubmitting"
+              class="submit-btn"
+              >Submit</el-button
+            >
+          </el-form-item>
+          <el-alert
+            v-if="submitStatus"
+            :title="alertTitle"
+            :type="alertType"
+            show-icon
           >
-        </el-form-item>
-        <el-alert
-          v-if="submitStatus"
-          :title="alertTitle"
-          :type="alertType"
-          show-icon
-        >
-        </el-alert>
-      </el-form>
-    </div>
+          </el-alert>
+        </el-form>
+      </el-card>
+    </section>
   </div>
 </template>
 
@@ -302,7 +313,7 @@ export default {
 }
 
 .bg-gray,
-.contact-form {
+.contact-section {
   background-color: var(--color-bg-gray);
 }
 
@@ -325,6 +336,14 @@ button.submit-btn {
 </style>
 
 <style>
+.contact-section .el-card {
+  border: none;
+}
+
+.contact-card-heading {
+  background: var(--color-primary);
+}
+
 .contact-form .el-form-item__label {
   color: red;
 }

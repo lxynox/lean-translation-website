@@ -50,7 +50,7 @@ export default {
       'Button',
       'Row',
       'Col',
-      // 'Card',
+      'Card',
       'Form',
       'Input',
       'FormItem',
