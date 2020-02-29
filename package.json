@@ -21,7 +21,6 @@
   },
   "dependencies": {
     "nuxt": "^2.0.0",
-    "nuxt-element-ui": "^1.0.10",
     "typeface-lato": "^0.0.75",
     "typeface-noto-sans-sc": "^0.0.71",
     "typeface-suez-one": "^0.0.72",
@@ -33,6 +32,7 @@
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^1.0.1",
+    "nuxt-element-ui": "^1.0.10",
     "@nuxtjs/eslint-module": "^1.0.0",
     "@nuxtjs/stylelint-module": "^3.1.0",
     "@nuxtjs/tailwindcss": "^1.0.0",

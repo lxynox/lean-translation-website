@@ -30,18 +30,22 @@ export default async function(moduleOptions) {
     })
   }
 
-  this.nuxt.hook('generate:extendRoutes', (routes) => {
-    // This will be called before Nuxt generates your pages
-    // extend default page routes with locale routes
-    const locales = Object.keys(messages).filter((l) => l !== defaultLocale)
-    const localeRoutes = []
-    for (const locale of locales) {
-      for (const route of routes) {
-        localeRoutes.push({
-          route: `/${locale}${route.route}`
-        })
-      }
-    }
-    Array.prototype.push.apply(routes, localeRoutes)
-  })
+  /**
+   * Re-enable this hook if locale change requires site reload
+   * e.g., location.href = {new_locale}/path
+   */
+  // this.nuxt.hook('generate:extendRoutes', (routes) => {
+  //   // This will be called before Nuxt generates your pages
+  //   // extend default page routes with locale routes
+  //   const locales = Object.keys(messages).filter((l) => l !== defaultLocale)
+  //   const localeRoutes = []
+  //   for (const locale of locales) {
+  //     for (const route of routes) {
+  //       localeRoutes.push({
+  //         route: `/${locale}${route.route}`
+  //       })
+  //     }
+  //   }
+  //   Array.prototype.push.apply(routes, localeRoutes)
+  // })
 }

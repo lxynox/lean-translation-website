@@ -1,6 +1,6 @@
 <template>
   <div class="-m-px">
-    <section ref="home" class="md:pt-16 bg-gray">
+    <section ref="about" class="md:pt-16 bg-gray">
       <container class="overflow-hidden">
         <el-row
           v-animate="'slide-in'"
@@ -26,7 +26,7 @@
               up and running with Stripe in just a couple of minutes.
             </p>
             <div class="button mt-4">
-              <el-button :round="true">Operating</el-button>
+              <el-button :round="true" @click="onClick">Contact</el-button>
             </div>
           </el-col>
         </el-row>
@@ -54,7 +54,7 @@
               up and running with Stripe in just a couple of minutes.
             </p>
             <div class="button mt-4">
-              <el-button :round="true">Operating</el-button>
+              <el-button :round="true" @click="onClick">Contact</el-button>
             </div>
           </el-col>
         </el-row>
@@ -82,7 +82,7 @@
               ul p and running with Stripe in just a couple of minutes.
             </p>
             <div class="button mt-4">
-              <el-button :round="true">Operating</el-button>
+              <el-button :round="true" @click="onClick">Contact</el-button>
             </div>
           </el-col>
         </el-row>
@@ -92,7 +92,7 @@
       </div>
     </section>
 
-    <section ref="about" class="bg-white pt-4">
+    <section ref="service" class="bg-white pt-4">
       <container>
         <el-row :gutter="10" class="border-0">
           <el-col
@@ -165,17 +165,22 @@
       </div>
     </section>
 
-    <section ref="contact" class="contact-section w-full pt-4 pb-8">
-      <el-card :body-style="{ padding: '0px' }" class="w-1/2 mx-auto">
-        <h3 class="contact-card-heading text-center text-white font-bold py-8">
-          Contact Form
+    <section ref="contact" class="contact-section w-full pt-4 pb-20">
+      <el-card :body-style="{ padding: '0px' }" class="max-w-xl w-1/2 mx-auto">
+        <h3
+          class="contact-card-heading text-3xl text-center text-white font-bold py-8"
+        >
+          {{ $t('contact.contactForm') }}
         </h3>
-        <el-form :model="form" class="mx-auto p-4">
+        <el-form :model="form" class="mx-auto px-4 py-8">
           <div class="flex flex-col-reverse">
             <div v-if="errorMessages.name" class="pt-1 text-red-600 text-right">
               name required
             </div>
-            <el-input v-model="form.name" placeholder="NAME"></el-input>
+            <el-input
+              v-model="form.name"
+              :placeholder="$t('contact.name')"
+            ></el-input>
           </div>
           <div class="flex flex-col-reverse mt-4">
             <div
@@ -186,7 +191,7 @@
             </div>
             <el-input
               v-model="form.email"
-              placeholder="EMAIL"
+              :placeholder="$t('contact.email')"
               class="flex flex-col-reverse"
             ></el-input>
           </div>
@@ -200,19 +205,19 @@
             <el-input
               :autosize="{ minRows: 4, maxRows: 6 }"
               v-model="form.message"
+              :placeholder="$t('contact.message')"
               type="textarea"
-              placeholder="MESSAGE"
               class="flex flex-col-reverse"
             ></el-input>
           </div>
-          <el-form-item class="flex justify-end mt-4">
+          <div class="flex justify-end mt-4 mb-0">
             <el-button
               @click="onSubmit"
               :disabled="isSubmitting"
               class="submit-btn"
-              >Submit</el-button
+              >{{ $t('contact.submit') }}</el-button
             >
-          </el-form-item>
+          </div>
           <el-alert
             v-if="submitStatus"
             :title="alertTitle"
@@ -228,6 +233,7 @@
 
 <script>
 import Container from '@/components/container.vue'
+import Image from '@/components/image.vue'
 
 const initState = () => ({
   name: '',
@@ -236,7 +242,7 @@ const initState = () => ({
 })
 
 export default {
-  components: { Container },
+  components: { Container, ElImage: Image },
   data() {
     return {
       form: initState(),
@@ -302,6 +308,9 @@ export default {
         const offsetPos = yPos - headerOffset
         window.scrollTo({ behavior: 'smooth', top: offsetPos })
       }
+    },
+    onClick() {
+      this.$root.$emit('scroll', 'contact')
     }
   }
 }

@@ -1,14 +1,25 @@
 {
+  "company": "扬州精译",
   "links": {
-    "home": "主页",
     "about": "关于",
+    "service": "服务",
     "contact": "联系"
-  },
-  "home": {
-    "title": "欢迎"
   },
   "about": {
     "title": "About title",
     "introduction": "This page is made to give you more informations."
+  },
+  "contact": {
+    "contactForm": "留言表",
+    "name": "姓名",
+    "email": "邮箱",
+    "message": "留言",
+    "submit": "提交"
+  },
+  "lang": {
+    "en": "英文",
+    "zh": "中文",
+    "de": "德语",
+    "fr": "法语"
   }
 }

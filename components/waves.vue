@@ -11,7 +11,7 @@
     </div>
     <div
       @click="onClick"
-      class="w-full absolute bounce flex flex-col items-center"
+      class="w-full absolute bounce flex flex-col items-center z-10"
     >
       <i class="el-icon-d-arrow-right mt-12"></i>
     </div>
@@ -22,6 +22,7 @@
 export default {
   methods: {
     onClick() {
+      debugger
       if ('scrollTo' in window) {
         const top = window.innerHeight || document.documentElement.clientHeight
         window.scrollTo({ top, behavior: 'smooth' })

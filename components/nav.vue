@@ -25,7 +25,7 @@
 </template>
 
 <script>
-const NAV_LINKS = ['home', 'about', 'contact']
+const NAV_LINKS = ['about', 'service', 'contact']
 
 export default {
   data() {
