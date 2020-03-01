@@ -1,7 +1,7 @@
 {
-  "name": "nuxt-app",
+  "name": "lean-translation-website",
   "version": "1.0.0",
-  "description": "My best Nuxt.js project",
+  "description": "lean translation website",
   "author": "",
   "private": true,
   "scripts": {
