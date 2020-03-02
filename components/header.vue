@@ -1,9 +1,8 @@
 <template>
   <header class="header h-screen flex flex-col">
-    <div class="w-16 m-2">
-      <logo class="w-full"></logo>
+    <div class="relative">
+      <logo class="w-16 h-16 m-2 absolute top-0 left-0"></logo>
     </div>
-    <div class="h-75vh"></div>
     <waves></waves>
     <div class="relative content">
       <div
@@ -17,7 +16,6 @@
           >
             <el-carousel-item v-for="image in bgImages" :key="image">
               <el-image :src="image" @click="onImageClick"></el-image>
-              <!-- <div class="h-full w-full bg-gray-500"></div> -->
             </el-carousel-item>
           </el-carousel>
         </div>
@@ -94,15 +92,7 @@ export default {
 }
 
 .header .waves {
-  top: 25vh;
-}
-
-.h-75vh {
-  height: 75vh;
-}
-
-.content {
-  top: -75vh;
+  top: 100vh;
 }
 
 .blockquote {
