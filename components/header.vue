@@ -1,5 +1,8 @@
 <template>
   <header class="header h-screen flex flex-col">
+    <div class="w-16 m-2">
+      <logo class="w-full"></logo>
+    </div>
     <div class="h-75vh"></div>
     <waves></waves>
     <div class="relative content">
@@ -48,6 +51,7 @@
 import Media from 'vue-media'
 import Waves from '@/components/waves.vue'
 import Image from '@/components/image.vue'
+import Logo from '@/assets/images/website-logo.svg?inline'
 // import { VueTyper } from 'vue-typer'
 
 const BG_IMAGES = [
@@ -57,7 +61,7 @@ const BG_IMAGES = [
 ]
 
 export default {
-  components: { Waves, Media, ElImage: Image },
+  components: { Waves, Media, ElImage: Image, Logo },
   data() {
     return { typingComplete: false }
   },

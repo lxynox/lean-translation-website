@@ -6,11 +6,15 @@
     sticky-z-index="1"
     class="shadow w-full bg-white animate"
   >
+    <div class="w-16 mx-auto">
+      <logo class="w-full"></logo>
+    </div>
     <el-menu
       :active-text-color="'#6c63ff'"
       :default-active="defaultActive"
       @select="onChange"
       mode="horizontal"
+      class="border-top border-gray-200"
     >
       <el-menu-item :index="link" v-for="link in NAV_LINKS" :key="link">
         <nuxt-link
@@ -25,9 +29,12 @@
 </template>
 
 <script>
+import Logo from '@/assets/images/website-logo.svg?inline'
+
 const NAV_LINKS = ['about', 'service', 'contact']
 
 export default {
+  components: { Logo },
   data() {
     return { show: false }
   },
@@ -62,5 +69,10 @@ export default {
 <style>
 .nuxt-link-exact-active {
   @apply .text-gray-700;
+}
+
+.border-top {
+  border-top-width: 1px;
+  border-top-style: solid;
 }
 </style>
