@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer py-12 text-white">
+  <footer class="footer py-4 md:py-12 text-white">
     <p class="text-center">ⓒ {{ $t('company') }} {{ currentYear }}</p>
     <div class="py-8 flex justify-center">
       <el-tooltip class="w-8 lg:w-12">

@@ -18,7 +18,7 @@
             <h2 class="p-4 uppercase text-secondary text-2xl font-semibold">
               Yummy hamburger
             </h2>
-            <p class="py-4 px-16 lg:px-4">
+            <p class="py-4 lg:px-4">
               We believe that payments is a problem rooted in code, not finance.
               We obsessively seek out elegant, composable abstractions that
               enable robust, scalable, flexible integrations. Because we
@@ -46,7 +46,7 @@
             <h2 class="p-4 uppercase text-secondary text-2xl font-semibold">
               Yummy hamburger
             </h2>
-            <p class="py-4 px-16 lg:px-4">
+            <p class="py-4 lg:px-4">
               We believe that payments is a problem rooted in code, not finance.
               We obsessively seek out elegant, composable abstractions that
               enable robust, scalable, flexible integra:tions. Because we
@@ -74,7 +74,7 @@
             <h2 class="p-4 uppercase text-secondary text-2xl font-semibold">
               Yummy hamburger
             </h2>
-            <p class="py-4 px-16 lg:px-4">
+            <p class="py-4 lg:px-4">
               We believe that payments is a problem rooted in code, not finance.
               We obsessively seek out elegant, composable abstractions that
               enable robust, scalable, flexible integrations. Because we
@@ -103,12 +103,12 @@
             class="md:mt-16"
           >
             <h2
-              class="p-4 px-16 uppercase text-secondary text-2xl font-semibold"
+              class="p-4 px-8 uppercase text-secondary text-2xl font-semibold"
             >
               <el-image :fit="'fill'" src="/germany.png"></el-image>
               <div>Heading</div>
             </h2>
-            <p class="py-4 px-16">
+            <p class="py-4 px-8">
               Stripe is an always-improving toolchain that gains new features
               every month. Our world-class engineering team constantly iterates
               upon every facet of the Stripe stack. And from Apple Pay to
@@ -124,12 +124,12 @@
             class="md:mt-16"
           >
             <h2
-              class="p-4 px-16 uppercase text-secondary text-2xl font-semibold"
+              class="p-4 px-8 uppercase text-secondary text-2xl font-semibold"
             >
               <el-image :fit="'fill'" src="/translation.png"></el-image>
               <div>Heading</div>
             </h2>
-            <p class="py-4 px-16">
+            <p class="py-4 px-8">
               Stripe is an always-improving toolchain that gains new features
               every month. Our world-class engineering team constantly iterates
               upon every facet of the Stripe stack. And from Apple Pay to
@@ -142,15 +142,15 @@
             :xs="24"
             :md="12"
             :xl="8"
-            class="md:mt-16"
+            class="md:mt-8"
           >
             <h2
-              class="p-4 px-16 uppercase text-secondary text-2xl font-semibold"
+              class="p-4 px-8 uppercase text-secondary text-2xl font-semibold"
             >
               <el-image :fit="'fill'" src="/linux.png"></el-image>
               <div>Heading</div>
             </h2>
-            <p class="py-4 px-16">
+            <p class="py-4 px-8">
               Stripe is an always-improving toolchain that gains new features
               every month. Our world-class engineering team constantly iterates
               upon every facet of the Stripe stack. And from Apple Pay to
@@ -166,7 +166,10 @@
     </section>
 
     <section ref="contact" class="contact-section w-full pt-4 pb-20">
-      <el-card :body-style="{ padding: '0px' }" class="max-w-xl w-1/2 mx-auto">
+      <el-card
+        :body-style="{ padding: '0px' }"
+        class="mx-8 max-w-xl md:w-1/2 md:mx-auto"
+      >
         <h3
           class="contact-card-heading text-3xl text-center text-white font-bold py-8"
         >

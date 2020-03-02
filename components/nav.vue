@@ -75,4 +75,9 @@ export default {
   border-top-width: 1px;
   border-top-style: solid;
 }
+
+.el-menu-item {
+  line-height: 3rem !important;
+  height: 3rem !important;
+}
 </style>
