@@ -217,7 +217,7 @@
             <el-button
               @click="onSubmit"
               :disabled="isSubmitting"
-              class="submit-btn"
+              class="submit-btn font-bold"
               >{{ $t('contact.submit') }}</el-button
             >
           </div>
