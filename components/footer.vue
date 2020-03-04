@@ -2,7 +2,7 @@
   <footer class="footer py-4 md:py-12 text-white">
     <p class="text-center">ⓒ {{ currentYear }} {{ $t('company') }}</p>
     <div class="py-4 flex justify-center">
-      <el-tooltip class="w-8 h-8 lg:w-12">
+      <el-tooltip class="w-8 h-8 lg:w-12 lg:h-12">
         <div slot="content">
           <el-image :src="IMAGES.wechatBarcode" class="w-32 h-32"></el-image>
         </div>
@@ -18,13 +18,13 @@
           />
         </svg>
       </el-tooltip>
-      <el-tooltip class="mx-8 w-8 h-8 lg:w-12">
+      <el-tooltip class="mx-8 w-8 h-8 lg:w-12 lg:h-12">
         <div slot="content">
           <el-image :src="IMAGES.qqBarcode" class="w-32 h-32"></el-image>
         </div>
         <img :src="IMAGES.qqIcon" alt="qq icon" />
       </el-tooltip>
-      <el-tooltip class="w-8 h-8 lg:w-12">
+      <el-tooltip class="w-8 h-8 lg:w-12 lg:h-12">
         <div slot="content">
           <el-image :src="IMAGES.alipayBarcode" class="w-32 h-32"></el-image>
         </div>
@@ -40,7 +40,7 @@
           />
         </svg>
       </el-tooltip>
-      <div class="mx-8 w-8 h-8 lg:w-12">
+      <div class="mx-8 w-8 h-8 lg:w-12 lg:h-12">
         <a href="mailto:1604021462@qq.com">
           <svg
             class="icon-gmail"

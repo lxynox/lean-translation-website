@@ -110,7 +110,7 @@ export default {
   border-left: 8px solid var(--color-primary);
 }
 
-@media (min-width: 1024px) {
+@media (min-width: theme('screens.lg')) {
   .blockquote {
     margin: 0;
   }
