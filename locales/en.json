@@ -1,16 +1,18 @@
 {
+  "company": "Yangzhou Lean Translation Co.Ltd",
   "landing": {},
   "links": {
-    "home": "Home",
     "about": "About",
+    "service": "Service",
     "contact": "Contact"
   },
   "home": {
     "title": "Lean Translation"
   },
   "about": {
-    "title": "About",
-    "introduction": "This page is made to give you more informations."
+    "speed": "",
+    "quality": "This page is made to give you more informations.",
+    "customerSatisfaction": "customer satisfaction"
   },
   "lang": {
     "en": "English",
@@ -24,5 +26,10 @@
     "email": "email",
     "message": "message",
     "submit": "submit"
+  },
+  "services": {
+    "dezh": "German Chinese Translation",
+    "enzh": "English Chinese Translation",
+    "training": "German training"
   }
 }

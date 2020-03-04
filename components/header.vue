@@ -8,14 +8,19 @@
       <div
         class="absolute w-full h-screen lg:flex lg:flex-col lg:flex-wrap lg:justify-center"
       >
-        <div class="pt-12 px-8 lg:w-1/2 lg:h-screen flex items-center">
+        <div class="pt-20 px-8 lg:w-1/2 lg:h-screen flex items-center">
           <el-carousel
+            type="card"
             indicator-position="outside"
-            height="50vh"
+            height="320px"
             class="w-full"
           >
             <el-carousel-item v-for="image in bgImages" :key="image">
-              <el-image :src="image" @click="onImageClick"></el-image>
+              <div
+                :style="{ backgroundImage: 'url(' + image + ')' }"
+                @click="onImageClick"
+                class="bg-center bg-cover h-full"
+              ></div>
             </el-carousel-item>
           </el-carousel>
         </div>
@@ -48,23 +53,22 @@
 <script>
 import Media from 'vue-media'
 import Waves from '@/components/waves.vue'
-import Image from '@/components/image.vue'
+// import Image from '@/components/image.vue'
+
 import Logo from '@/assets/images/website-logo.svg?inline'
+import Carousel1 from '@/assets/images/carousel-1.jpg'
+import Carousel2 from '@/assets/images/carousel-2.jpg'
+import Carousel3 from '@/assets/images/carousel-3.jpg'
+import Carousel4 from '@/assets/images/carousel-4.jpg'
 // import { VueTyper } from 'vue-typer'
 
-const BG_IMAGES = [
-  '/header-image-1.svg',
-  '/header-image-3.svg',
-  '/header-image-4.svg'
-]
-
 export default {
-  components: { Waves, Media, ElImage: Image, Logo },
+  components: { Waves, Media, Logo },
   data() {
     return { typingComplete: false }
   },
   created() {
-    this.bgImages = BG_IMAGES
+    this.bgImages = [Carousel1, Carousel2, Carousel3, Carousel4]
   },
   methods: {
     onComplete() {
