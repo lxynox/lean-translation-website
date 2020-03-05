@@ -6,34 +6,38 @@
       </div>
     </div>
     <waves></waves>
-    <div class="relative content">
-      <div
-        class="absolute w-full h-screen lg:flex lg:flex-col lg:flex-wrap lg:justify-center"
-      >
-        <div class="pt-20 px-8 lg:w-1/2 lg:h-screen flex items-center">
-          <el-carousel
-            type="card"
-            indicator-position="outside"
-            height="320px"
-            class="w-full"
+    <div class="relative">
+      <div class="absolute w-full h-screen">
+        <div class="max-w-screen-lg mx-auto">
+          <div class="md:px-12 mt-32 px-2">
+            <el-carousel
+              :type="screen !== 'sm' && 'card'"
+              interval="1000"
+              height="320px"
+              class="w-full"
+            >
+              <el-carousel-item
+                v-for="image in bgImages"
+                :key="image"
+                :class="{ 'w-full': screen === 'sm' }"
+              >
+                <div
+                  :style="{ backgroundImage: 'url(' + image + ')' }"
+                  @click="onImageClick"
+                  class="bg-center bg-cover w-full h-full"
+                ></div>
+              </el-carousel-item>
+            </el-carousel>
+          </div>
+          <h1
+            class="lg:text-6xl mt-12 px-4 text-4xl text-gray-700 text-center font-black"
           >
-            <el-carousel-item v-for="image in bgImages" :key="image">
-              <div
-                :style="{ backgroundImage: 'url(' + image + ')' }"
-                @click="onImageClick"
-                class="bg-center bg-cover h-full"
-              ></div>
-            </el-carousel-item>
-          </el-carousel>
+            {{ $t('company') }}
+          </h1>
         </div>
-        <h1
-          class="lg:w-1/3 lg:text-left lg:text-6xl px-4 text-4xl text-gray-700 text-center font-black"
-        >
-          {{ $t('company') }}
-        </h1>
         <blockquote
-          :class="{ hidden: screen === 'sm', complete: typingComplete }"
-          class="lg:w-1/2 blockquote px-6 pt-8"
+          :class="{ complete: typingComplete }"
+          class="blockquote px-6 pt-8"
         >
           <p class="uppercase w-full text-xl">
             <!-- <vue-typer
@@ -81,6 +85,7 @@ export default {
     this.bgImages = [Carousel1, Carousel2, Carousel3, Carousel4]
   },
   mounted() {
+    this.onResize()
     window.addEventListener('resize', this.onResize)
   },
   beforeDestroy() {
@@ -136,12 +141,6 @@ export default {
   max-width: 500px;
   border-left: 8px solid var(--color-primary);
 }
-
-@media (min-width: theme('screens.lg')) {
-  .blockquote {
-    margin: 0;
-  }
-}
 </style>
 
 <style>
@@ -155,5 +154,13 @@ export default {
 
 .vue-typer .custom.caret {
   display: none;
+}
+
+.el-carousel__container {
+  @apply w-full;
+}
+
+.max-w-screen-lg {
+  max-width: theme('screens.lg');
 }
 </style>
