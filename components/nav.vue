@@ -6,35 +6,38 @@
     sticky-z-index="1"
     class="shadow w-full bg-white animate"
   >
-    <div class="w-16 mx-auto">
-      <logo class="w-full"></logo>
+    <div class="w-full border-b border-gray-200 ">
+      <logo class="w-16 mx-auto"></logo>
     </div>
-    <el-menu
-      :active-text-color="'#6c63ff'"
-      :default-active="defaultActive"
-      @select="onChange"
-      mode="horizontal"
-      class="border-top border-gray-200"
-    >
-      <el-menu-item :index="link" v-for="link in NAV_LINKS" :key="link">
-        <nuxt-link
-          :to="location(link)"
-          class="px-2 text-gray-500 text-base font-semibold hover:text-gray-700"
-        >
-          {{ $t('links.' + link) }}
-        </nuxt-link>
-      </el-menu-item>
-    </el-menu>
+    <container>
+      <el-menu
+        :active-text-color="'#6c63ff'"
+        :default-active="defaultActive"
+        @select="onChange"
+        mode="horizontal"
+        class="border-0"
+      >
+        <el-menu-item :index="link" v-for="link in NAV_LINKS" :key="link">
+          <nuxt-link
+            :to="location(link)"
+            class="px-2 text-gray-500 text-base font-semibold hover:text-gray-700"
+          >
+            {{ $t('links.' + link) }}
+          </nuxt-link>
+        </el-menu-item>
+      </el-menu>
+    </container>
   </nav>
 </template>
 
 <script>
+import Container from '@/components/container.vue'
 import Logo from '@/assets/images/website-logo.svg?inline'
 
 const NAV_LINKS = ['about', 'service', 'contact']
 
 export default {
-  components: { Logo },
+  components: { Logo, Container },
   data() {
     return { show: false }
   },
@@ -69,11 +72,6 @@ export default {
 <style>
 .nuxt-link-exact-active {
   @apply .text-gray-700;
-}
-
-.border-top {
-  border-top-width: 1px;
-  border-top-style: solid;
 }
 
 .el-menu-item {
