@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import smoothscroll from 'smoothscroll-polyfill'
 import Header from '@/components/header.vue'
 import Nav from '@/components/nav.vue'
 import Footer from '@/components/footer.vue'
@@ -23,6 +24,9 @@ import LanguageSelect from '@/components/language_select'
 
 // Load ZCOOL KuaiLe typeface
 require('typeface-zcool-kuaile')
+
+// kick off the polyfill!
+smoothscroll.polyfill()
 
 export default {
   components: {

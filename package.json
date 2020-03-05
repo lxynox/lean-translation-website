@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "nuxt": "^2.0.0",
+    "smoothscroll-polyfill": "^0.4.4",
     "typeface-lato": "^0.0.75",
     "typeface-noto-sans-sc": "^0.0.71",
     "typeface-suez-one": "^0.0.72",

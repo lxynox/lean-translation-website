@@ -1,6 +1,6 @@
 <template>
   <footer class="footer py-4 md:py-12 text-white">
-    <p class="text-center">ⓒ {{ currentYear }} {{ $t('company') }}</p>
+    <p class="text-center p-4">ⓒ {{ currentYear }} {{ $t('company') }}</p>
     <div class="py-4 flex justify-center">
       <el-tooltip class="w-8 h-8 lg:w-12 lg:h-12">
         <div slot="content">

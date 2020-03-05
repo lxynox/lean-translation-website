@@ -307,7 +307,7 @@ export default {
         const yPos =
           elm.getBoundingClientRect().top + document.documentElement.scrollTop
         // TODO: change
-        const headerOffset = 50
+        const headerOffset = 125
         const offsetPos = yPos - headerOffset
         window.scrollTo({ behavior: 'smooth', top: offsetPos })
       }
