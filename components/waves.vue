@@ -22,7 +22,6 @@
 export default {
   methods: {
     onClick() {
-      debugger
       if ('scrollTo' in window) {
         const top = window.innerHeight || document.documentElement.clientHeight
         window.scrollTo({ top, behavior: 'smooth' })

@@ -31,29 +31,28 @@
         >
           {{ $t('company') }}
         </h1>
-        <media :query="{ minWidth: 768 }">
-          <blockquote
-            :class="{ complete: typingComplete }"
-            class="lg:w-1/2 blockquote px-6 pt-8"
-          >
-            <p class="uppercase w-full text-xl">
-              <!-- <vue-typer
+        <blockquote
+          :class="{ hidden: screen === 'sm', complete: typingComplete }"
+          class="lg:w-1/2 blockquote px-6 pt-8"
+        >
+          <p class="uppercase w-full text-xl">
+            <!-- <vue-typer
                 @completed="onComplete"
                 :repeat="'0'"
                 text=""
               ></vue-typer> -->
-              Words travel worlds. Translation do the driving
-            </p>
-            <cite class="block text-gray-600 text-right">- Anna Rusconi</cite>
-          </blockquote>
-        </media>
+            Words travel worlds. Translation do the driving
+          </p>
+          <cite class="block text-gray-600 text-right">- Anna Rusconi</cite>
+        </blockquote>
       </div>
     </div>
   </header>
 </template>
 
 <script>
-import Media from 'vue-media'
+import resolveConfig from 'tailwindcss/resolveConfig'
+import tailwindConfig from 'tailwindcss/defaultConfig'
 import Waves from '@/components/waves.vue'
 // import Image from '@/components/image.vue'
 
@@ -64,15 +63,41 @@ import Carousel3 from '@/assets/images/carousel-3.jpg'
 import Carousel4 from '@/assets/images/carousel-4.jpg'
 // import { VueTyper } from 'vue-typer'
 
+// FIX: Replace tailwind config with @/tailwind.config.js
+// got following error:
+// { TypeError: Cannot assign to read only property 'exports' of object '#<Object>'
+// https://github.com/tailwindcss/discuss/issues/50
+const { theme } = resolveConfig(tailwindConfig)
+
 export default {
-  components: { Waves, Media, Logo },
+  components: { Waves, Logo },
   data() {
-    return { typingComplete: false }
+    // typingComplete: false
+    return {
+      screen: 'sm'
+    }
   },
   created() {
     this.bgImages = [Carousel1, Carousel2, Carousel3, Carousel4]
   },
+  mounted() {
+    window.addEventListener('resize', this.onResize)
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.onResize)
+  },
   methods: {
+    onResize() {
+      const lgQuery = `screen and (min-width: ${theme.screens.lg})`
+      const mdQuery = `screen and (min-width: ${theme.screens.md})`
+      if (window.matchMedia(lgQuery).matches) {
+        this.screen = 'lg'
+      } else if (window.matchMedia(mdQuery).matches) {
+        this.screen = 'md'
+      } else {
+        this.screen = 'sm'
+      }
+    },
     onComplete() {
       this.typingComplete = true
     },
