@@ -1,7 +1,9 @@
 <template>
   <header class="header h-screen flex flex-col">
     <div class="relative">
-      <logo class="w-16 h-16 m-2 absolute top-0 left-0"></logo>
+      <div class="absolute top-0 left-0 w-screen">
+        <logo class="w-16 h-16 mx-auto"></logo>
+      </div>
     </div>
     <waves></waves>
     <div class="relative content">
@@ -25,7 +27,7 @@
           </el-carousel>
         </div>
         <h1
-          class="lg:w-1/3 lg:text-left lg:text-6xl lg:text-left px-4 text-4xl text-gray-700 text-center font-black"
+          class="lg:w-1/3 lg:text-left lg:text-6xl px-4 text-4xl text-gray-700 text-center font-black"
         >
           {{ $t('company') }}
         </h1>
