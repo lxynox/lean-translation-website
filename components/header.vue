@@ -1,55 +1,49 @@
 <template>
-  <header class="header h-screen flex flex-col">
-    <div class="relative">
-      <div class="absolute top-0 left-0 w-screen">
-        <logo class="w-16 h-16 mx-auto"></logo>
-      </div>
-    </div>
+  <header class="relative header h-screen flex flex-col">
     <waves></waves>
-    <div class="relative">
-      <div class="absolute w-full h-screen">
-        <div class="max-w-screen-lg mx-auto">
-          <div class="md:px-12 mt-32 px-2">
-            <el-carousel
-              :type="screen !== 'sm' && 'card'"
-              interval="1000"
-              height="320px"
-              class="w-full"
-            >
-              <el-carousel-item
-                v-for="image in bgImages"
-                :key="image"
-                :class="{ 'w-full': screen === 'sm' }"
-              >
-                <div
-                  :style="{ backgroundImage: 'url(' + image + ')' }"
-                  @click="onImageClick"
-                  class="bg-center bg-cover w-full h-full"
-                ></div>
-              </el-carousel-item>
-            </el-carousel>
-          </div>
-          <h1
-            class="lg:text-6xl mt-12 px-4 text-4xl text-gray-700 text-center font-black"
+    <div class="h-screen z-10 overflow-hidden">
+      <div class="max-w-screen-lg mx-auto">
+        <div class="md:px-12 md:mt-32 md:px-2">
+          <el-carousel
+            :type="screen !== 'sm' && 'card'"
+            interval="1000"
+            height="420px"
+            class="w-full"
           >
-            {{ $t('company') }}
-          </h1>
+            <el-carousel-item
+              v-for="image in bgImages"
+              :key="image"
+              :class="{ 'w-full': screen === 'sm' }"
+            >
+              <div
+                :style="{ backgroundImage: 'url(' + image + ')' }"
+                @click="onImageClick"
+                class="bg-center bg-cover w-full h-full cursor-default"
+              ></div>
+            </el-carousel-item>
+          </el-carousel>
         </div>
-        <blockquote
-          :class="{ complete: typingComplete }"
-          class="blockquote px-6 pt-8"
+        <div
+          :class="{ absolute: screen !== 'sm' }"
+          class="top-0 left-0 w-screen mt-4"
         >
-          <p class="uppercase w-full text-xl">
-            <!-- <vue-typer
+          <logo class="w-16 h-16 mx-auto"></logo>
+        </div>
+        <h1 class="py-2 px-4 text-4xl text-gray-700 text-center font-black">
+          {{ $t('company') }}
+        </h1>
+      </div>
+      <blockquote class="blockquote px-6 mt-4 mx-auto">
+        <p class="uppercase w-full text-xl">
+          <!-- <vue-typer
                 @completed="onComplete"
                 :repeat="'0'"
                 text=""
               ></vue-typer> -->
-            Words travel worlds. Translation do the driving
-          </p>
-          <cite class="block text-gray-600 text-right">- Anna Rusconi</cite>
-        </blockquote>
-      </div>
+          Words travel worlds. Translation do the driving
+        </p>
+        <cite class="block text-gray-600 text-right">- Anna Rusconi</cite>
+      </blockquote>
     </div>
   </header>
 </template>
@@ -132,14 +126,14 @@ export default {
 }
 
 .blockquote {
-  transition: border-left 1s linear;
+  display: none;
   max-width: 600px;
-  margin: auto;
 }
 
-.blockquote.complete {
-  max-width: 500px;
-  border-left: 8px solid var(--color-primary);
+@media (min-width: theme('screens.md')) {
+  .blockquote {
+    display: block;
+  }
 }
 </style>
 

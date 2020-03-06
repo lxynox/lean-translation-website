@@ -1,5 +1,5 @@
 <template>
-  <div class="relative waves">
+  <div class="relative waves z-0">
     <div class="w-full bottom-0 absolute">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
@@ -42,12 +42,12 @@ export default {
 }
 
 .bounce {
-  animation: bounce 1s linear 1s infinite alternate;
+  animation: bounce 1s ease-in-out 2s infinite alternate;
 }
 
 @keyframes bounce {
   from {
-    bottom: 2rem;
+    bottom: 2.5rem;
   }
   to {
     /* transform: translateY(-1rem); */
